@@ -20,14 +20,14 @@ class _NewExpenseState extends State<NewExpense> {
       now.month,
       now.day,
     );
-    final _pickedDate = await showDatePicker(
+    final pickedDate = await showDatePicker(
       context: context,
       initialDate: now,
       firstDate: firstDate,
       lastDate: now,
     );
     setState(() {
-      _selectedDate = _pickedDate;
+      _selectedDate = pickedDate;
     });
   }
 
@@ -44,6 +44,8 @@ class _NewExpenseState extends State<NewExpense> {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
+          
+          //Title section
           TextField(
             controller: _titleController,
             maxLength: 20,
@@ -53,6 +55,7 @@ class _NewExpenseState extends State<NewExpense> {
           ),
           Row(
             children: [
+              // Amount input section
               Expanded(
                 child: TextField(
                   controller: _amountController,
@@ -67,6 +70,8 @@ class _NewExpenseState extends State<NewExpense> {
               const SizedBox(
                 width: 60,
               ),
+
+              //Date picker section
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -90,14 +95,36 @@ class _NewExpenseState extends State<NewExpense> {
               )
             ],
           ),
+
           Row(
             children: [
+
+              //Category section
+              DropdownButton(
+                items: Category.values
+                    .map(
+                      (category) => DropdownMenuItem(
+                        value: category,
+                        child: Text(
+                          category.name.toString(),
+                        ),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (value) {
+                  print(value);
+                },
+              ),
+
+              //Cancel button
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 child: const Text("Cancel"),
               ),
+
+              //Save button
               ElevatedButton(
                 onPressed: () {
                   print(_titleController.text);

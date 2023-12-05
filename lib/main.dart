@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/widget/expenses.dart';
-void main (){
+
+void main() {
   runApp(
-    const MaterialApp(
-      home: Expeneses(),
+    MaterialApp(
+      theme: ThemeData().copyWith(
+        
+
+      ),
+      home: const Expeneses(),
     ),
   );
 }

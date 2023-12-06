@@ -29,7 +29,10 @@ class _ExpenesesState extends State<Expeneses> {
 
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      
+      //allow stay away from the device features that is affecting the UI
       useSafeArea: true,
+
       context: context,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense),
       isScrollControlled: true,

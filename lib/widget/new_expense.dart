@@ -83,6 +83,7 @@ class _NewExpenseState extends State<NewExpense> {
   Widget build(BuildContext context) {
 final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
 
+
     return SizedBox(
       height: double.infinity,
       child: SingleChildScrollView(

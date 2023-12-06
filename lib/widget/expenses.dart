@@ -67,7 +67,7 @@ class _ExpenesesState extends State<Expeneses> {
     // to determine the width and height of the the device
     final width = MediaQuery.of(context).size.width;
     // final height = MediaQuery.of(context).size.height;
-
+    print(MediaQuery.of(context).size.width);
     Widget mainContent = const Center(
       child: Text("No expenses found, Start adding some!"),
     );
@@ -89,7 +89,7 @@ class _ExpenesesState extends State<Expeneses> {
           )
         ],
       ),
-      body: width < 600
+      body: width < 550
           ? Column(
               children: [
                 Chart(expenses: _registeredExpenses),
